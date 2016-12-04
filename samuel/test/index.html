@@ -2,19 +2,30 @@
 <html>
 <body>
 
-<h2>Create Object from JSON String</h2>
-
-<p id="demo"></p>
+<div id="id01"></div>
 
 <script>
-var text = '{"employees":[' +
-'{"firstName":"John","lastName":"Doe" },' +
-'{"firstName":"Anna","lastName":"Smith" },' +
-'{"firstName":"Peter","lastName":"Jones" }]}';
+var xmlhttp = new XMLHttpRequest();
+var url = "myTutorials.txt";
 
-obj = JSON.parse(text);
-document.getElementById("demo").innerHTML =
-obj.employees[1].firstName + " " + obj.employees[1].lastName;
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myArr = JSON.parse(this.responseText);
+        myFunction(myArr);
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(arr) {
+    var out = "";
+    var i;
+    for(i = 0; i < arr.length; i++) {
+        out += '<a href="' + arr[i].url + '">' + 
+        arr[i].display + '</a><br>';
+    }
+    document.getElementById("id01").innerHTML = out;
+}
 </script>
 
 </body>
