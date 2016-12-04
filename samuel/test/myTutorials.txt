@@ -1,7 +1,7 @@
 [
 {
-"display": "JavaScript Tutorial",
-"url": "http://www.w3schools.com/js/default.asp"
+"display": "unus.one",
+"url": "http://www.unus.one"
 },
 {
 "display": "HTML Tutorial",
